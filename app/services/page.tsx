@@ -1,22 +1,85 @@
-export default function ServicesPage(){
-  return (
-    <div className="py-12">
-      <h1 className="text-3xl font-semibold kortek-title">Services</h1>
-      <p className="mt-4 text-gray-300 max-w-2xl">From full website builds to custom automation — we ship production-ready solutions.</p>
+import Link from 'next/link'
 
-      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[
-          'Discord Development','Website Development','Automation Systems','API Integrations','Custom Solutions'
-        ].map((s)=> (
-          <div key={s} className="card p-6 rounded-2xl glow">
-            <h3 className="text-xl font-medium">{s}</h3>
-            <p className="mt-2 text-gray-300">High quality, documented and scalable.</p>
-            <div className="mt-4">
-              <a className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#ff7a00] to-[#ff9500] text-black font-medium" href="/contact">Start</a>
+export default function ServicesPage() {
+  const services = [
+    {
+      icon: '🤖',
+      title: 'Discord Development',
+      desc: 'Custom Discord bots, ticket systems, moderation and server automation.'
+    },
+    {
+      icon: '🌐',
+      title: 'Website Development',
+      desc: 'Modern websites built with Next.js, optimized for speed and SEO.'
+    },
+    {
+      icon: '⚡',
+      title: 'Automation Systems',
+      desc: 'Automate workflows, repetitive tasks and business operations.'
+    },
+    {
+      icon: '🔗',
+      title: 'API Integrations',
+      desc: 'Payment gateways, OAuth systems, webhooks and third-party services.'
+    },
+    {
+      icon: '💻',
+      title: 'Custom Solutions',
+      desc: 'Tailored software solutions designed specifically for your project.'
+    },
+    {
+      icon: '🛠️',
+      title: 'Technical Support',
+      desc: 'Ongoing maintenance, updates and professional assistance.'
+    }
+  ]
+
+  return (
+    <section className="py-20">
+      <div className="text-center">
+        <span className="font-semibold text-[#ff7a00]">
+          OUR SERVICES
+        </span>
+
+        <h1 className="mt-3 text-5xl font-bold text-white">
+          Professional Solutions
+        </h1>
+
+        <p className="mx-auto mt-5 max-w-3xl text-gray-400">
+          From Discord bots to complete web platforms, KORTEK delivers
+          high-quality solutions built for performance and reliability.
+        </p>
+      </div>
+
+      <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => (
+          <div
+            key={service.title}
+            className="card p-8"
+          >
+            <div className="mb-5 text-5xl">
+              {service.icon}
+            </div>
+
+            <h2 className="text-2xl font-bold text-white">
+              {service.title}
+            </h2>
+
+            <p className="mt-3 text-gray-400">
+              {service.desc}
+            </p>
+
+            <div className="mt-6">
+              <Link
+                href="/contact"
+                className="rounded-xl bg-gradient-to-r from-[#ff7a00] to-[#ff9500] px-5 py-3 font-semibold text-black"
+              >
+                Start Project
+              </Link>
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   )
 }
