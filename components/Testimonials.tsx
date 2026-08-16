@@ -1,26 +1,67 @@
-export default function Testimonials(){
+export default function Testimonials() {
   const reviews = [
-    {name:'Aiden M', text:'KORTEK delivered a flawless ticket system. Quick, reliable and well documented.'},
-    {name:'Sofia R', text:'Their team built a website that converted. Highly recommended.'},
-    {name:'Liam G', text:'Custom bot exceeded expectations, great communication.'}
+    {
+      name: 'Aiden M',
+      role: 'Discord Community Owner',
+      text: 'KORTEK delivered a flawless ticket system. Fast delivery, excellent support and outstanding quality.'
+    },
+    {
+      name: 'Sofia R',
+      role: 'Business Owner',
+      text: 'Their team built a modern website that exceeded expectations. Professional from start to finish.'
+    },
+    {
+      name: 'Liam G',
+      role: 'Server Administrator',
+      text: 'The custom bot was exactly what we needed. Reliable, scalable and easy to manage.'
+    }
   ]
 
   return (
-    <section>
-      <h3 className="text-2xl font-semibold kortek-title">Testimonials</h3>
-      <p className="mt-2 text-gray-400">Trusted by customers worldwide.</p>
+    <section className="py-20">
+      <div className="text-center">
+        <span className="font-semibold text-[#ff7a00]">
+          TESTIMONIALS
+        </span>
 
-      <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
-        {reviews.map(r=> (
-          <div key={r.name} className="card p-6 rounded-2xl">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#ff7a00] to-[#ff9500] flex items-center justify-center text-black font-semibold">{r.name.split(' ')[0][0]}</div>
+        <h2 className="mt-3 text-4xl font-bold text-white">
+          What Clients Say
+        </h2>
+
+        <p className="mx-auto mt-4 max-w-2xl text-gray-400">
+          Trusted by communities, businesses and creators worldwide.
+        </p>
+      </div>
+
+      <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {reviews.map((review) => (
+          <div
+            key={review.name}
+            className="card p-8"
+          >
+            <div className="mb-5 flex items-center gap-4">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#ff7a00] to-[#ff9500] text-xl font-bold text-black">
+                {review.name.charAt(0)}
+              </div>
+
               <div>
-                <div className="font-semibold">{r.name}</div>
-                <div className="text-yellow-400">★★★★★</div>
+                <h3 className="font-bold text-white">
+                  {review.name}
+                </h3>
+
+                <p className="text-sm text-gray-500">
+                  {review.role}
+                </p>
               </div>
             </div>
-            <p className="mt-4 text-gray-300">"{r.text}"</p>
+
+            <div className="mb-4 text-yellow-400 text-xl">
+              ★★★★★
+            </div>
+
+            <p className="leading-7 text-gray-300">
+              "{review.text}"
+            </p>
           </div>
         ))}
       </div>
