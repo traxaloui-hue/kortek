@@ -1,25 +1,74 @@
-export default function BotsPage(){
-  return (
-    <div className="py-12">
-      <h1 className="text-3xl font-semibold kortek-title">Bots</h1>
-      <p className="mt-4 text-gray-300 max-w-2xl">Specialized Discord bots crafted for communities and teams — secure, extensible and fast.</p>
+import Link from 'next/link'
 
-      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[
-          {name:'Ticket Bot',desc:'Custom ticket workflows, roles and channels'},
-          {name:'Moderation Bot',desc:'Automated moderation and anti-raid systems'},
-          {name:'Verification Bot',desc:'Secure verification flows with OAuth and captchas'}
-        ].map((b)=> (
-          <div key={b.name} className="card p-6 rounded-2xl glow">
-            <h3 className="text-xl font-medium">{b.name}</h3>
-            <p className="mt-2 text-gray-300">{b.desc}</p>
-            <div className="mt-4 flex items-center justify-between">
-              <div className="text-orange-400 font-semibold">From $29</div>
-              <a className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#ff7a00] to-[#ff9500] text-black font-medium" href="/contact">Buy</a>
+export default function BotsPage() {
+  const bots = [
+    {
+      icon: '🎫',
+      name: 'Ticket Bot',
+      price: '$29',
+      desc: 'Advanced ticket system with transcripts and staff tools.'
+    },
+    {
+      icon: '🛡️',
+      name: 'Moderation Bot',
+      price: '$49',
+      desc: 'Anti-spam, anti-raid and advanced moderation features.'
+    },
+    {
+      icon: '✅',
+      name: 'Verification Bot',
+      price: '$39',
+      desc: 'Secure verification with role assignment and protection.'
+    }
+  ]
+
+  return (
+    <section className="py-20">
+      <div className="text-center">
+        <span className="font-semibold text-[#ff7a00]">
+          DISCORD BOTS
+        </span>
+
+        <h1 className="mt-3 text-5xl font-bold text-white">
+          Premium Discord Bots
+        </h1>
+
+        <p className="mx-auto mt-5 max-w-3xl text-gray-400">
+          Powerful, secure and scalable Discord bots built for communities,
+          gaming servers and businesses.
+        </p>
+      </div>
+
+      <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {bots.map((bot) => (
+          <div key={bot.name} className="card p-8">
+            <div className="mb-5 text-5xl">
+              {bot.icon}
+            </div>
+
+            <h2 className="text-2xl font-bold text-white">
+              {bot.name}
+            </h2>
+
+            <p className="mt-3 text-gray-400">
+              {bot.desc}
+            </p>
+
+            <div className="mt-6 flex items-center justify-between">
+              <span className="text-2xl font-bold text-[#ff7a00]">
+                {bot.price}
+              </span>
+
+              <Link
+                href="/contact"
+                className="rounded-xl bg-gradient-to-r from-[#ff7a00] to-[#ff9500] px-5 py-3 font-semibold text-black"
+              >
+                Buy Now
+              </Link>
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   )
 }
