@@ -1,18 +1,71 @@
-export default function Features(){
+export default function Features() {
   const features = [
-    'Fast Delivery','Premium Quality','Secure Payments','Professional Support','Scalable Solutions','Custom Development'
+    {
+      icon: '⚡',
+      title: 'Fast Delivery',
+      desc: 'Get your products and services delivered quickly.'
+    },
+    {
+      icon: '🛡️',
+      title: 'Secure Payments',
+      desc: 'Safe transactions and trusted payment methods.'
+    },
+    {
+      icon: '⭐',
+      title: 'Premium Quality',
+      desc: 'High-quality products built with care.'
+    },
+    {
+      icon: '💬',
+      title: '24/7 Support',
+      desc: 'Professional assistance whenever you need it.'
+    },
+    {
+      icon: '🚀',
+      title: 'Scalable Solutions',
+      desc: 'Built to grow with your community or business.'
+    },
+    {
+      icon: '💻',
+      title: 'Custom Development',
+      desc: 'Tailored solutions designed for your exact needs.'
+    }
   ]
 
   return (
-    <section>
-      <h3 className="text-2xl font-semibold kortek-title">Why Choose KORTEK</h3>
-      <p className="mt-2 text-gray-400">Built for businesses and creators who demand the best.</p>
+    <section className="py-20">
+      <div className="text-center">
+        <span className="font-semibold text-[#ff7a00]">
+          WHY KORTEK
+        </span>
 
-      <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-4">
-        {features.map(f=> (
-          <div key={f} className="card p-4 rounded-xl flex items-center gap-3">
-            <div className="w-10 h-10 rounded-md bg-gradient-to-br from-[#ff7a00] to-[#ff9500] flex items-center justify-center text-black font-semibold">✓</div>
-            <div className="text-sm">{f}</div>
+        <h2 className="mt-3 text-4xl font-bold text-white">
+          Built For Quality
+        </h2>
+
+        <p className="mx-auto mt-4 max-w-2xl text-gray-400">
+          Everything we create is focused on performance,
+          reliability and long-term success.
+        </p>
+      </div>
+
+      <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {features.map((feature) => (
+          <div
+            key={feature.title}
+            className="rounded-3xl border border-white/10 bg-[#111] p-8 transition duration-300 hover:border-[#ff7a00]/40 hover:-translate-y-1"
+          >
+            <div className="mb-5 text-5xl">
+              {feature.icon}
+            </div>
+
+            <h3 className="mb-3 text-xl font-bold text-white">
+              {feature.title}
+            </h3>
+
+            <p className="text-gray-400">
+              {feature.desc}
+            </p>
           </div>
         ))}
       </div>
