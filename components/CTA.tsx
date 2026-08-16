@@ -1,15 +1,47 @@
-export default function CTA(){
+import Link from 'next/link'
+
+export default function CTA() {
   return (
-    <section className="mt-8 rounded-2xl overflow-hidden">
-      <div className="p-8 rounded-2xl" style={{background: 'linear-gradient(90deg, rgba(255,122,0,0.16), rgba(255,149,0,0.14))'}}>
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>
-            <h4 className="text-2xl font-semibold kortek-title">Start Your Project</h4>
-            <p className="mt-2 text-gray-200">Kick off your next project with our expert team and fast delivery times.</p>
+    <section className="py-24">
+      <div className="relative overflow-hidden rounded-3xl border border-[#ff7a00]/20 bg-[#111] px-8 py-16 text-center">
+
+        <div className="absolute left-0 top-0 h-64 w-64 rounded-full bg-[#ff7a00]/10 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-[#ff9500]/10 blur-3xl" />
+
+        <div className="relative z-10">
+
+          <span className="font-semibold text-[#ff7a00]">
+            READY TO START?
+          </span>
+
+          <h2 className="mt-4 text-4xl font-bold text-white md:text-5xl">
+            Let's Build Something Amazing
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
+            Whether you need a Discord bot, a professional website,
+            automation tools or a custom solution, KORTEK is ready
+            to help bring your ideas to life.
+          </p>
+
+          <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+
+            <Link
+              href="/contact"
+              className="rounded-xl bg-gradient-to-r from-[#ff7a00] to-[#ff9500] px-8 py-4 font-bold text-black transition hover:scale-105"
+            >
+              Start Your Project
+            </Link>
+
+            <Link
+              href="/services"
+              className="rounded-xl border border-white/10 px-8 py-4 font-bold text-white transition hover:border-[#ff7a00]"
+            >
+              View Services
+            </Link>
+
           </div>
-          <div>
-            <a href="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-black bg-opacity-10 border border-white/6 text-white font-semibold">Start Your Project</a>
-          </div>
+
         </div>
       </div>
     </section>
