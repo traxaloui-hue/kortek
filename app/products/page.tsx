@@ -1,22 +1,95 @@
-export default function ProductsPage(){
-  return (
-    <div className="py-12">
-      <h1 className="text-3xl font-semibold kortek-title">Products</h1>
-      <p className="mt-4 text-gray-300 max-w-2xl">Explore our catalog of premium bots, themes, and automation tools. All products are delivered with documentation and support.</p>
+import Link from 'next/link'
 
-      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* lightweight product cards */}
-        {["Discord Ticket Bot","Moderation Bot","Verification Bot","Website Development","Automation Service","Custom Bot Development"].map((p)=> (
-          <div key={p} className="card p-6 rounded-2xl glow">
-            <h3 className="text-xl font-medium">{p}</h3>
-            <p className="mt-2 text-gray-300">Premium quality, fast delivery and continuous support included.</p>
-            <div className="mt-4 flex items-center justify-between">
-              <div className="text-orange-400 font-semibold">From $49</div>
-              <a className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#ff7a00] to-[#ff9500] text-black font-medium" href="/contact">Request</a>
+export default function ProductsPage() {
+  const products = [
+    {
+      icon: '🤖',
+      title: 'Discord Ticket Bot',
+      price: '$49',
+      desc: 'Advanced support ticket system with panels and transcripts.'
+    },
+    {
+      icon: '🛡️',
+      title: 'Moderation Bot',
+      price: '$69',
+      desc: 'Powerful moderation, anti-spam and anti-raid protection.'
+    },
+    {
+      icon: '✅',
+      title: 'Verification Bot',
+      price: '$39',
+      desc: 'Secure user verification and role management.'
+    },
+    {
+      icon: '🌐',
+      title: 'Website Development',
+      price: '$199',
+      desc: 'Modern business websites built with Next.js.'
+    },
+    {
+      icon: '⚡',
+      title: 'Automation Service',
+      price: '$99',
+      desc: 'Automate repetitive workflows and save time.'
+    },
+    {
+      icon: '💻',
+      title: 'Custom Bot Development',
+      price: 'Custom',
+      desc: 'Fully customized Discord bots for your project.'
+    }
+  ]
+
+  return (
+    <section className="py-20">
+      <div className="text-center">
+        <span className="font-semibold text-[#ff7a00]">
+          OUR PRODUCTS
+        </span>
+
+        <h1 className="mt-3 text-5xl font-bold text-white">
+          Premium Digital Products
+        </h1>
+
+        <p className="mx-auto mt-5 max-w-3xl text-gray-400">
+          Discover professional bots, automation systems and custom
+          development services built for businesses and online communities.
+        </p>
+      </div>
+
+      <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {products.map((product) => (
+          <div
+            key={product.title}
+            className="card p-8"
+          >
+            <div className="mb-5 text-5xl">
+              {product.icon}
+            </div>
+
+            <h2 className="text-2xl font-bold text-white">
+              {product.title}
+            </h2>
+
+            <p className="mt-3 text-gray-400">
+              {product.desc}
+            </p>
+
+            <div className="mt-6 flex items-center justify-between">
+              <span className="text-2xl font-bold text-[#ff7a00]">
+                {product.price}
+              </span>
+
+              <Link
+                href="/contact"
+                className="rounded-xl bg-gradient-to-r from-[#ff7a00] to-[#ff9500] px-5 py-3 font-semibold text-black"
+              >
+                Order Now
+              </Link>
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   )
 }
